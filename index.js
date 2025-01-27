@@ -19,7 +19,9 @@ const data = [
 app.get("/", (req, res) => {
   res.send(data);
 });
-
+app.get("/test", (req, res) => {
+  res.send(data);
+});
 app.listen(port, () => {
   console.log("server is running");
 });
