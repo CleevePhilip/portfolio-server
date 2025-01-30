@@ -46,9 +46,13 @@ app.post("/send_mail/:email/:name/:message", async (req, res) => {
     res.status(500).json({ error: "Failed to send email" });
   }
 });
-
+const data = [
+  { id: 1, name: "test" },
+  { id: 1, name: "test" },
+  { id: 1, name: "test" },
+];
 app.get("/", () => {
-  res.send("SERVER IS RUNNING");
+  res.json({ data });
 });
 
 app.listen(port, () => {
