@@ -4,10 +4,12 @@ const cors = require("cors");
 require("dotenv").config();
 const nodemailer = require("nodemailer");
 const port = 8000;
+const data = "hello";
 
-app.get("/", async () => {
+app.get("/", async (req, res) => {
   try {
-    res.json({ data });
+    res.send(data);
+    console.log(data);
   } catch (error) {
     console.log(error);
   }
