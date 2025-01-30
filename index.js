@@ -5,7 +5,7 @@ require("dotenv").config();
 const nodemailer = require("nodemailer");
 const port = 8000;
 const data = "hello";
-
+const test = "test";
 app.get("/", async (req, res) => {
   try {
     res.send(data);
@@ -16,7 +16,7 @@ app.get("/", async (req, res) => {
 });
 app.get("/test", async (req, res) => {
   try {
-    res.send("Test:", data);
+    res.send(test);
     console.log(data);
   } catch (error) {
     console.log(error);
