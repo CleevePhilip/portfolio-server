@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 require("dotenv").config();
 const nodemailer = require("nodemailer");
-const port = process.env.VERCEL_BASED_URL;
+const port = 8000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
