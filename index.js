@@ -15,20 +15,13 @@ app.get("/", async (req, res) => {
     console.log(error);
   }
 });
-app.get("/test", async (req, res) => {
-  try {
-    res.send(test);
-    console.log(data);
-  } catch (error) {
-    console.log(error);
-  }
-});
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
   cors({
-    origin: process.env.VERCEL_BASED_URL,
+    origin: "*",
+
     credentials: true,
   })
 );
