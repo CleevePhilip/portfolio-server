@@ -47,6 +47,10 @@ app.post("/send_mail/:email/:name/:message", async (req, res) => {
   }
 });
 
+app.get("/", () => {
+  res.send("SERVER IS RUNNING");
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
