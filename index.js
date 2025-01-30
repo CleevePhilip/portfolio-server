@@ -51,8 +51,12 @@ const data = [
   { id: 1, name: "test" },
   { id: 1, name: "test" },
 ];
-app.get("/", () => {
-  res.json({ data });
+app.get("/", async () => {
+  try {
+    res.json({ data });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 app.listen(port, () => {
