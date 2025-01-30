@@ -47,9 +47,9 @@ app.post("/send_mail/:email/:name/:message", async (req, res) => {
   }
 });
 const data = [
-  { id: 1, name: "test" },
-  { id: 1, name: "test" },
-  { id: 1, name: "test" },
+  { id: 1, name: "test1" },
+  { id: 2, name: "test2" },
+  { id: 3, name: "test3" },
 ];
 app.get("/", async () => {
   try {
