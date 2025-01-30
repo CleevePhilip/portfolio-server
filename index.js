@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
   cors({
-    origin: "*", // You might want to restrict this to specific domains for security
+    origin: "https://portfoliocleeve.vercel.app/", // You might want to restrict this to specific domains for security
     credentials: true,
   })
 );
