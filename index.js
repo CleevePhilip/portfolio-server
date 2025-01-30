@@ -3,14 +3,13 @@ const app = express();
 const cors = require("cors");
 require("dotenv").config();
 const nodemailer = require("nodemailer");
-const port = process.env.PORT;
+const port = process.env.PORT || 3000; // Set default port if not in env
 const data = "hello";
-const test = "test";
 
 app.get("/", async (req, res) => {
   try {
     res.send(data);
-    console.log(data);
+    console.log(data); // Logging for debugging
   } catch (error) {
     console.log(error);
   }
@@ -20,15 +19,20 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
   cors({
-    origin: "*",
-
+    origin: "*", // You might want to restrict this to specific domains for security
     credentials: true,
   })
 );
 
-app.post("/send_mail/:email/:name/:message", async (req, res) => {
+app.post("/send_mail", async (req, res) => {
   try {
-    const { email, message, name } = req.params;
+    const { email, name, message, captcha } = req.body; // Get values from the request body
+
+    if (!email || !name || !message || !captcha) {
+      return res.status(400).json({ error: "All fields are required." });
+    }
+
+    // Validate CAPTCHA here if needed
 
     const transporter = nodemailer.createTransport({
       host: "smtp-relay.brevo.com",
